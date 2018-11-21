@@ -6,6 +6,7 @@ import * as authActions from 'redux/modules/auth';
 import * as userActions from 'redux/modules/user';
 import {bindActionCreators} from 'redux';
 import {isEmail, isLength, isAlphanumeric} from 'validator';
+
 class Register extends Component {
     checkEmailExists = debounce(async (email) => {
         const { AuthActions } = this.props;
@@ -19,7 +20,7 @@ class Register extends Component {
         } catch (e) {
             console.log(e);
         }
-    }, 300)
+    }, 300);
 
     checkUsernameExists = debounce(async (username) => {
         const { AuthActions } = this.props;
@@ -33,14 +34,15 @@ class Register extends Component {
         } catch (e) {
             console.log(e);
         }
-    }, 300)
+    }, 300);
+
     setError = (message) => {
         const { AuthActions } = this.props;
         AuthActions.setError({
             form: 'register',
             message
         });
-    }
+    };
 
     validate = {
         email: (value) => {
@@ -73,7 +75,8 @@ class Register extends Component {
             this.setError(null); 
             return true;
         }
-    }
+    };
+
     handleChange = (e) => {
         const { AuthActions } = this.props;
         const { name, value } = e.target;
@@ -91,7 +94,7 @@ class Register extends Component {
         // TODO: 이메일, 아이디 중복 확인
         const check = name === 'email' ? this.checkEmailExists : this.checkUsernameExists; // name 에 따라 이메일체크할지 아이디 체크 할지 결정
         check(value);
-    }
+    };
 
     handleLocalRegister = async () => {
         const { form, AuthActions, error, history } = this.props;
@@ -125,13 +128,13 @@ class Register extends Component {
             }
             this.setError('알 수 없는 에러가 발생했습니다.')
         }
-    }    
+    }    ;
 
     
     componentWillUnmount() {
         const { AuthActions } = this.props;
         AuthActions.initializeForm('register')
-    }
+    };
 
     render() {
         const { error } = this.props;

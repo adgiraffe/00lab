@@ -51,6 +51,7 @@ class Login extends Component {
         const { AuthActions } = this.props;
         AuthActions.initializeForm('login')
     }
+
     componentDidMount() {
         const { location } = this.props;
         const query = queryString.parse(location.search);
@@ -67,19 +68,19 @@ class Login extends Component {
 
         return (
             <AuthContent title="로그인">
-                <InputWithLabel 
-                    label="이메일" 
-                    name="email" 
-                    placeholder="이메일" 
-                    value={email} 
+                <InputWithLabel
+                    label="이메일"
+                    name="email"
+                    placeholder="이메일"
+                    value={email}
                     onChange={handleChange}
                 />
-                <InputWithLabel 
-                    label="비밀번호" 
-                    name="password" 
-                    placeholder="비밀번호" 
-                    type="password" 
-                    value={password} 
+                <InputWithLabel
+                    label="비밀번호"
+                    name="password"
+                    placeholder="비밀번호"
+                    type="password"
+                    value={password}
                     onChange={handleChange}
                 />
                 {

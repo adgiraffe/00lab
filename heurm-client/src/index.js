@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import './index.css';
+import './index.css';
 import Root from './Root';
 import * as serviceWorker from './serviceWorker';
 import configureStore from 'redux/configureStore';
@@ -21,4 +21,4 @@ if(module.hot) {
     module.hot.accept('./Root', () => render(Root));
 }
 
-serviceWorker.unregister();
+serviceWorker.register();
